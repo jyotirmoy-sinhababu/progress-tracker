@@ -516,13 +516,13 @@ export default function HabitTracker() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <h1 className='text-2xl font-extrabold sm:text-2xl'>
+                <h1 className='text-3xl font-extrabold sm:text-2xl'>
                   <span
                     className={`block ${
                       settings.darkMode ? 'text-indigo-400' : 'text-indigo-600'
                     }`}
                   >
-                    Build Better Routines & Track Progress
+                    Build Better Routines & Track Progress.
                   </span>
                 </h1>
               </motion.div>
@@ -731,12 +731,7 @@ export default function HabitTracker() {
                           >
                             {renderIcon(habit.iconName)}
                           </div>
-                          <div className='flex gap-1.5'>
-                            <span className='ml-2'>{habit.name} </span>
-                            <span className='text-sm text-gray-500 dark:text-gray-400'>
-                              ({habit.unit})
-                            </span>
-                          </div>
+                          <span className='ml-2'>{habit.name}</span>
                         </div>
                         <div className='flex items-center'>
                           <input
@@ -756,6 +751,9 @@ export default function HabitTracker() {
                                 : 'bg-white border-gray-300'
                             }`}
                           />
+                          <span className='text-sm text-gray-500 dark:text-gray-400'>
+                            {habit.unit}
+                          </span>
                         </div>
                       </div>
                     ))}
