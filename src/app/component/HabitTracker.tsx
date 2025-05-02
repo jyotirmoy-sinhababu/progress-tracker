@@ -236,7 +236,6 @@ export default function HabitTracker() {
       const parsedHabits = JSON.parse(savedHabits);
       setHabits(parsedHabits);
 
-      // Initialize checkInValues with today's values
       const initialCheckInValues: Record<number, number> = {};
       parsedHabits.forEach((habit: Habit) => {
         const todayData = habit.data.find((day) => day.isToday);
@@ -255,15 +254,19 @@ export default function HabitTracker() {
       }
     }
 
-    if (savedSettings) setSettings(JSON.parse(savedSettings));
+    if (savedSettings) {
+      setSettings(JSON.parse(savedSettings));
+    }
+  }, []);
 
-    // Show reminder modal if there are uncompleted habits and it's past 8 PM
+  useEffect(() => {
     const currentHour = new Date().getHours();
     const hasUncompletedHabits = habits.some((habit) => !habit.completed);
+
     if (currentHour >= 20 && hasUncompletedHabits && settings.notifications) {
       setShowReminderModal(true);
     }
-  }, []);
+  }, [habits, settings.notifications]);
 
   // Save data to localStorage when it changes
   useEffect(() => {
