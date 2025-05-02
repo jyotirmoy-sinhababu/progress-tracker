@@ -514,7 +514,6 @@ export default function HabitTracker() {
           >
             <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
               <motion.div
-                className=''
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -525,7 +524,7 @@ export default function HabitTracker() {
                       settings.darkMode ? 'text-indigo-400' : 'text-indigo-600'
                     }`}
                   >
-                    Build Better Routines & Track Progress.
+                    Build Better Routines & Track Progress
                   </span>
                 </h1>
               </motion.div>
